@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-content [fullscreen]="true">
+
+    <div class="HERO-materia">
+      <img class="img-hero" alt="Silhouette of mountains" src="../assets/img/img-materia.jpg" />
+      <h4 class="subtitulo-h6-1">Sección</h4>
+      <h1 class="titulo-h1">Materias</h1>
+      <h6 class="subtitulo-h6-2">Selecciona las materias que quieras impartir</h6>
+    </div>
+    
+    <!-- Materia -->
+    <ion-card *ngFor="let curso of cursos">
+      <ion-card-header>
+        <img class="img-materia" alt="Silhouette of mountains" src="{{ curso.imagenMateria}}" />
+        <ion-card-title class="titulo">{{ curso.materias }}</ion-card-title>
+        <ion-card-subtitle class="subtitulo-1"><b>Sección:</b> {{ curso.seccion }}</ion-card-subtitle>
+        <ion-card-subtitle class="subtitulo-2"><b>Sigla:</b> {{ curso.sigla }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content class="desc-materia"> {{ curso.DescripcionMateria }} </ion-card-content>
+      <div class="div-bottones">
+        <ion-button
+          class="button-2"
+          fill="clear"
+          [routerLink]="['/second-page']">
+          <ion-icon
+            class="icon3"
+            slot="start"
+            name="arrow-back-outline"></ion-icon>
+          volver</ion-button>
+
+        <ion-button
+          class="button-1"
+          fill="clear"
+          (click)="irPagina5ConDatos(curso)">
+          <ion-icon slot="start" name="book-outline"></ion-icon>
+          Ir al curso</ion-button>
+      </div>
+      <img class="img-materia-filter-blur" alt="Silhouette of mountains" src="{{ curso.imagenMateria}}" />
+
+    </ion-card>
+  </ion-content>
+</ion-header>
